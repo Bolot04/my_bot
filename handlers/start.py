@@ -1,6 +1,6 @@
 from aiogram import Dispatcher, types
 from const import START_MENU_TEXT
-from config import bot
+from config import bot, MEDIA_DESTINATION
 from database.sql_commands import Database
 from keyboards.inline_bottons import start_menu_keyboard
 
@@ -14,14 +14,19 @@ async def start_button(message: types.Message):
         first_name=message.from_user.first_name,
         last_name=message.from_user.last_name,
     )
-    await bot.send_message(
-        chat_id=message.from_user.id,
-        text=START_MENU_TEXT.format(
-            user=message.from_user.first_name
-        ),
-        reply_markup=await start_menu_keyboard(),
-    )
+
+    with open(MEDIA_DESTINATION + "my_bot_photo.jpg", 'rb') as photo:
+        await bot.send_photo(
+            chat_id=message.from_user.id,
+            photo=photo,
+            caption=START_MENU_TEXT.format(
+                user=message.from_user.first_name
+            ),
+            reply_markup=await start_menu_keyboard(),
+            parse_mode=types.ParseMode.MARKDOWN
+
+        )
 
 
 def register_start_handlers(dp: Dispatcher):
-    dp.register_message_handler(start_button, commands=['start',])
+    dp.register_message_handler(start_button, commands=['start'])

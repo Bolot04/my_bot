@@ -14,7 +14,8 @@ async def start_questionnaire_call(call: types.CallbackQuery):
 async def python_call(call: types.CallbackQuery):
     await bot.send_message(
         chat_id=call.from_user.id,
-        text="oh cool,Python Developer",
+        text="oh cool,Python Developer\n"
+             "Backand or Frontend ?",
         reply_markup=await inline_bottons.backend_or_frontend_menu_keyboard()
     )
 
@@ -22,15 +23,8 @@ async def python_call(call: types.CallbackQuery):
 async def mojo_call(call: types.CallbackQuery):
     await bot.send_message(
         chat_id=call.from_user.id,
-        text="Dont lie to me ",
-        reply_markup=await inline_bottons.backend_or_frontend_menu_keyboard()
-    )
-
-
-async def backand_or_frontend_call(call: types.CallbackQuery):
-    await bot.send_message(
-        chat_id=call.from_user.id,
-        text="Backand or Frontend ?",
+        text="Dont lie to me \n"
+             "Backand or Frontend ?",
         reply_markup=await inline_bottons.backend_or_frontend_menu_keyboard()
     )
 
@@ -46,7 +40,8 @@ async def backend_call(call: types.CallbackQuery):
 async def c_plus2_call(call: types.CallbackQuery):
     await bot.send_message(
         chat_id=call.from_user.id,
-        text="Oh you love such a complex program!!! ",
+        text="Oh you love such a complex program!!! \n"
+             "Which company would you like to work for? ",
         reply_markup=await inline_bottons.future_job_in_company_keyboard()
     )
 
@@ -54,7 +49,8 @@ async def c_plus2_call(call: types.CallbackQuery):
 async def java_call(call: types.CallbackQuery):
     await bot.send_message(
         chat_id=call.from_user.id,
-        text="I also like this program even though it doesn’t exist ) ",
+        text="I also like this program even though it doesn’t exist ) \n"
+             "Which company would you like to work for? ",
         reply_markup=await inline_bottons.future_job_in_company_keyboard()
     )
 
@@ -70,7 +66,8 @@ async def frontend_call(call: types.CallbackQuery):
 async def javascript_call(call: types.CallbackQuery):
     await bot.send_message(
         chat_id=call.from_user.id,
-        text="I would also like to learn ",
+        text="I would also like to learn \n"
+             "Which company would you like to work for? ",
         reply_markup=await inline_bottons.future_job_in_company_keyboard()
     )
 
@@ -78,15 +75,8 @@ async def javascript_call(call: types.CallbackQuery):
 async def html_call(call: types.CallbackQuery):
     await bot.send_message(
         chat_id=call.from_user.id,
-        text="I'm also interested in this style of programming ",
-        reply_markup=await inline_bottons.future_job_in_company_keyboard()
-    )
-
-
-async def future_company(call: types.CallbackQuery):
-    await bot.send_message(
-        chat_id=call.from_user.id,
-        text="Which company would you like to work for? ",
+        text="I'm also interested in this style of programming \n"
+             "Which company would you like to work for? ",
         reply_markup=await inline_bottons.future_job_in_company_keyboard()
     )
 
@@ -115,7 +105,7 @@ def register_questionnaire_handlers(dp: Dispatcher):
     dp.register_callback_query_handler(backend_call,
                                        lambda call: call.data == "backend")
     dp.register_callback_query_handler(c_plus2_call,
-                                       lambda call: call.data == "с++")
+                                       lambda call: call.data == "c++")
     dp.register_callback_query_handler(java_call,
                                        lambda call: call.data == "java")
     dp.register_callback_query_handler(frontend_call,

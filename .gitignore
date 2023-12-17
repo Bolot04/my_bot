@@ -3,9 +3,9 @@
 db.sqlite3
  __pycache__/
 venv
-database/__init__.py
-handlers/__init__.py
-keyboards/__init__.py
 /__pycache__/
 __pycache__
 database/__pycache__
+/handlers/__init__.py
+keyboards/__init__.py
+database/__init__.py
