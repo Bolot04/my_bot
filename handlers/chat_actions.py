@@ -1,4 +1,4 @@
-from datetime import timedelta,datetime
+from datetime import timedelta, datetime
 from aiogram import types, Dispatcher
 from config import bot, GROUP_ID, ADMIN_ID
 from profanity_check import predict_prob
@@ -47,6 +47,3 @@ async def chat_messages(message: types.Message):
 
 def register_chat_actions_handlers(dp: Dispatcher):
     dp.register_message_handler(chat_messages)
-
-
-
