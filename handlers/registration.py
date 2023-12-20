@@ -205,3 +205,4 @@ def registration_handlers(dp: Dispatcher):
         state=RegistrationStates.photo,
         content_types=types.ContentTypes.PHOTO
     )
+

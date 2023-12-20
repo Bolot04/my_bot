@@ -9,7 +9,7 @@ async def start_menu_keyboard():
     )
     registration_button = InlineKeyboardButton(
         "Start Registration 🔥",
-        callback_data="registration "
+        callback_data="registration"
     )
     markup.add(questionnaire_button)
     markup.add(registration_button)

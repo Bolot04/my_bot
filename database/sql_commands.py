@@ -57,7 +57,6 @@ class Database:
 
     def sql_registration_profile(self, tg_id):
         return self.cursor.execute(
-
             sql_queries.SELECT_REGISTRATION_USER,
             (tg_id,)
         ).fetchone()
