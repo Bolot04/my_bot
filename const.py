@@ -4,3 +4,9 @@ START_MENU_TEXT = "Hello {user}\n" \
                   "Start Questionnaire button"
 
 
+PROFILE_TEXT = "*Nickname:* {nickname}\n" \
+               "Bio: {bio}\n" \
+               "Age: {age}\n" \
+               "Number: {number}\n"\
+               "Street: {street}\n"\
+               "Gender: {gender}"

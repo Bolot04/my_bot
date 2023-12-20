@@ -9,3 +9,5 @@ database/__pycache__
 /handlers/__init__.py
 keyboards/__init__.py
 database/__init__.py
+requirements.txt
+media
