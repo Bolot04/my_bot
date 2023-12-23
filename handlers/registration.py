@@ -1,3 +1,5 @@
+import sqlite3
+
 from aiogram import types, Dispatcher
 from config import bot, MEDIA_DESTINATION
 from aiogram.dispatcher.filters.state import State, StatesGroup
@@ -94,7 +96,7 @@ async def load_gender(message: types.Message,
 
     await bot.send_message(
         chat_id=message.from_user.id,
-        text='Send me ur photo '
+        text='Send me ur number '
     )
     await RegistrationStates.next()
 
@@ -107,7 +109,7 @@ async def load_number(message: types.Message,
 
     await bot.send_message(
         chat_id=message.from_user.id,
-        text='Send me ur number '
+        text='Send me ur street'
     )
     await RegistrationStates.next()
 
@@ -120,7 +122,7 @@ async def load_street(message: types.Message,
 
     await bot.send_message(
         chat_id=message.from_user.id,
-        text='Send me ur street '
+        text=' Send me ur photo'
     )
     await RegistrationStates.next()
 
@@ -134,16 +136,21 @@ async def load_photo(message: types.Message,
     )
     print(path.name)
     async with state.proxy() as data:
-        db.sql_insert_profile(
-            tg_id=message.from_user.id,
-            nickname=data['nickname'],
-            bio=data['biography'],
-            age=data['age'],
-            gender=data['gender'],
-            number=data['number'],
-            street=data['street'],
-            photo=path.name
-        )
+        try:
+            db.sql_insert_profile(
+                tg_id=message.from_user.id,
+                nickname=data['nickname'],
+                bio=data['biography'],
+                age=data['age'],
+                gender=data['gender'],
+                number=data['number'],
+                street=data['street'],
+                photo=path.name
+            )
+        except sqlite3.IntegrityError:
+            await message.reply(
+                text="You have registered before"
+            )
         with open(path.name, 'rb') as photo:
             await bot.send_photo(
                 chat_id=message.from_user.id,
@@ -186,12 +193,12 @@ def registration_handlers(dp: Dispatcher):
         content_types=['text']
     )
     dp.register_message_handler(
-        load_age,
+        load_number,
         state=RegistrationStates.number,
         content_types=['text']
     )
     dp.register_message_handler(
-        load_age,
+        load_street,
         state=RegistrationStates.street,
         content_types=['text']
     )
@@ -205,4 +212,3 @@ def registration_handlers(dp: Dispatcher):
         state=RegistrationStates.photo,
         content_types=types.ContentTypes.PHOTO
     )
-
