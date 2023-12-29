@@ -11,3 +11,4 @@ keyboards/__init__.py
 database/__init__.py
 requirements.txt
 media
+scraper/__init__.py/
