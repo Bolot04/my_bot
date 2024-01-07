@@ -3,12 +3,11 @@ START_MENU_TEXT = "Hello {user}\n" \
                   "U can start Questionnaire by clicking " \
                   "Start Questionnaire button"
 
-
 PROFILE_TEXT = "*Nickname:* {nickname}\n" \
                "Bio: {bio}\n" \
                "`Age: {age}`\n" \
-               "Number: {number}\n"\
-               "Street: {street}\n"\
+               "Number: {number}\n" \
+               "Street: {street}\n" \
                "`Gender: {gender}`"
 
 REFERENCE_MENU_TEXT = "Greets in our Reference menu {user}\n" \

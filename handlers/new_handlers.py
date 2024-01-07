@@ -1,8 +1,8 @@
-from aiogram import types
+from aiogram import types, Dispatcher
 
 from config import bot
 from const import PARSER_TEXT
-from scraper.scraper import NewsScraper
+from scraper.scraper import AnimeScraper
 from scraper.parser import AnimeParser
 
 
@@ -32,7 +32,7 @@ async def parser_anime(call: types.CallbackQuery):
         )
 
 
-def register_news_handlers(dp):
+def register_anime_handlers(dp: Dispatcher):
     dp.register_callback_query_handler(scrape_news, lambda call: call.data == "anime_menu")
     dp.register_callback_query_handler(
         parser_anime, lambda call: call.data == "parsing_menu"
