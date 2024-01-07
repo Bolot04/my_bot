@@ -15,3 +15,6 @@ REFERENCE_MENU_TEXT = "Greets in our Reference menu {user}\n" \
                       "Here is your balance: {balance}\n" \
                       "Total referrals: {referral}\n\n" \
                       "Thank you for using reference menu"
+
+PARSER_TEXT = "Название: {title}\n" \
+              "{link}"
