@@ -23,7 +23,7 @@ questionnaire.register_questionnaire_handlers(dp=dp)
 registration.registration_handlers(dp=dp)
 profile.register_profile_handlers(dp=dp)
 reference.register_reference_handlers(dp=dp)
-new_handlers.register_anime_handlers(dp=dp)
+# new_handlers.register_anime_handlers(dp=dp)
 chat_actions.register_chat_actions_handlers(dp=dp)
 
 if __name__ == "__main__":
